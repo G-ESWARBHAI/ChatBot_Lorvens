@@ -33,6 +33,15 @@ app.get("/health", (_req, res) => {
   });
 });
 
+// Root route for testing
+app.get("/", (_req, res) => {
+  res.json({
+    message: "CharBot Backend API is running!",
+    endpoints: ["/health", "/api/chat", "/api/mock"],
+    status: "ok"
+  });
+});
+
 // Help for GET /api/chat
 app.get("/api/chat", (_req, res) => {
   res
@@ -89,16 +98,8 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-// Serve frontend in production
-if (process.env.NODE_ENV === "production") {
-  // Adjust path so it works if backend/ and vite-project/ are siblings
-  const frontendPath = path.join(__dirname, "../vite-project/dist");
-  app.use(express.static(frontendPath));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-  });
-}
+// Note: In Vercel, frontend is served separately via vercel.json routing
+// This server only handles API endpoints
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
