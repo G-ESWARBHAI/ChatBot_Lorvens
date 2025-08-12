@@ -4,12 +4,23 @@
     {
       "src": "Backend/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "vite-project/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
       "dest": "Backend/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "vite-project/dist/$1"
     }
   ]
 } 
