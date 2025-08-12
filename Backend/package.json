@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "nodemon server.js",
-    "build": "npm install && npm install --prefix ../vite-project && npm run build --prefix ../vite-project",
+    "build": "npm install",
     "start": "node server.js"
   },
   "keywords": [],

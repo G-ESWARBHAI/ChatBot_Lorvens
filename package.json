@@ -1,0 +1,14 @@
+{
+  "name": "charbot-lorvens",
+  "version": "1.0.0",
+  "description": "CharBot with React frontend and Express backend",
+  "main": "Backend/server.js",
+  "scripts": {
+    "build": "cd vite-project && npm install && npm run build",
+    "start": "cd Backend && npm start",
+    "dev": "cd Backend && npm run dev"
+  },
+  "keywords": ["chatbot", "react", "express", "vercel"],
+  "author": "G-ESWARBHAI",
+  "license": "ISC"
+} 
